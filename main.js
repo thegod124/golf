@@ -29,8 +29,8 @@ function new_image()
 		ball_obj.scaleToWidth(50);
 		ball_obj.scaleToHeight(50);
 		ball_obj.set({
-			top:ball_x,
-			left:ball_y
+			top:ball_y,
+			left:ball_x
 		})
 		canvas.add(ball_obj);
 	});
@@ -45,6 +45,7 @@ function my_keydown(e)
 	
 	if((ball_x == hole_x && ball_y == hole_y)){
 		canvas.remove(ball_obj);
+		console.log("You Have Hit The Goal!!!")
 		document.getElementById("hd3").innerHTML="YOU HAVE HIT THE GOAL!!!";
 		document.getElementById("myCanvas").style.borderColor="red";
 	}
@@ -74,9 +75,9 @@ function my_keydown(e)
 	
 	function up()
 	{
-		if(ball_x >=0){
-			ball_x = ball_x - block_image_width;
-			console.log("block image width = " + block_image_width);
+		if(ball_y >=5){
+			ball_y = ball_y - block_image_height;
+			console.log("block image height = " + block_image_height);
 			console.log("When down arrow key is pressed, x = " + ball_x + " , y = " + ball_y);
 			canvas.remove(ball_obj);
 			new_image()
@@ -85,9 +86,9 @@ function my_keydown(e)
 
 	function down()
 	{
-		 if(ball_x <=450){
-			ball_x = ball_x + block_image_width;
-			console.log("block image width = " + block_image_width);
+		 if(ball_y <=450){
+			ball_y = ball_y + block_image_height;
+			console.log("block image height = " + block_image_height);
 			console.log("When down arrow key is pressed, x = " + ball_x + " , y = " + ball_y);
 			canvas.remove(ball_obj);
 			new_image()
@@ -96,10 +97,10 @@ function my_keydown(e)
 
 	function left()
 	{
-		if(ball_y >5)
+		if(ball_x >5)
 		{
-			ball_y = ball_y - block_image_height;
-			 console.log("block image height = " + block_image_height);
+			ball_x = ball_x - block_image_width;
+			 console.log("block image width = " + block_image_width);
 			 console.log("When down arrow key is pressed, x = " + ball_x + " , y = " + ball_y);
 			 canvas.remove(ball_obj);
 			 new_image();
@@ -108,10 +109,10 @@ function my_keydown(e)
 
 	function right()
 	{
-		if(ball_y <=1050)
+		if(ball_x <=1050)
 		{
-			ball_y = ball_y + block_image_height;
-			 console.log("block image height = " + block_image_height);
+			ball_x = ball_x + block_image_width;
+			 console.log("block image width = " + block_image_width);
 			 console.log("When down arrow key is pressed, x = " + ball_x + " , y = " + ball_y);
 			 canvas.remove(ball_obj);
 			 new_image();
